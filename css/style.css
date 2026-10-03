@@ -1,0 +1,1564 @@
+/* =========================================================
+   KOS
+   Main Style
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fffaf2 0%,
+            #f7ecdc 45%,
+            #eadbc8 100%
+        );
+
+    color: #3b3028;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(143, 105, 80, 0.35);
+    outline-offset: 3px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   GAME
+========================================================= */
+
+#game {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    min-height: 600px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+#game::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: -250px;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    pointer-events: none;
+}
+
+#game::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: -200px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background: rgba(181, 143, 105, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HUD
+========================================================= */
+
+.hud {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 82px;
+
+    padding: 0 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 50;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    pointer-events: auto;
+
+    position: relative;
+
+    color: #382e28;
+
+    font-size: 30px;
+    font-weight: 900;
+
+    letter-spacing: 9px;
+
+    text-transform: uppercase;
+
+    user-select: none;
+
+    text-shadow:
+        0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+.logo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 2px;
+    bottom: -8px;
+
+    width: 32px;
+    height: 3px;
+
+    background: #a97852;
+
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   CLOCK
+========================================================= */
+
+.clock {
+    pointer-events: auto;
+
+    min-width: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+
+    color: #40342c;
+
+    user-select: none;
+}
+
+.clock #time {
+    font-size: 23px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+.clock #day {
+    font-size: 13px;
+
+    color: #806d5c;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   ROOM CONTAINER
+========================================================= */
+
+#room-container {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding-top: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   SVG ROOM
+========================================================= */
+
+#room {
+    display: block;
+
+    width: min(1180px, 96vw);
+
+    height: auto;
+
+    max-height: 92vh;
+
+    overflow: visible;
+
+    transform-origin: center center;
+
+    user-select: none;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   ROOM HOVER FEEL
+========================================================= */
+
+#room .interactive {
+    transition:
+        transform 0.18s ease,
+        filter 0.18s ease,
+        opacity 0.18s ease;
+}
+
+
+/* =========================================================
+   INTERACTION PANEL
+========================================================= */
+
+#interaction-panel {
+    position: fixed;
+
+    top: 50%;
+    right: 30px;
+
+    width: 360px;
+
+    max-width: calc(100vw - 40px);
+
+    max-height: 82vh;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 252, 247, 0.98),
+            rgba(248, 238, 224, 0.97)
+        );
+
+    color: #3b3028;
+
+    border:
+        1px solid rgba(107, 82, 63, 0.15);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 30px 70px rgba(53, 39, 28, 0.20),
+        0 8px 20px rgba(53, 39, 28, 0.08);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+
+    z-index: 100;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    animation:
+        panelAppear 0.22s ease;
+}
+
+
+/* =========================================================
+   PANEL SCROLLBAR
+========================================================= */
+
+#interaction-panel::-webkit-scrollbar {
+    width: 7px;
+}
+
+#interaction-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#interaction-panel::-webkit-scrollbar-thumb {
+    background: #c9b29b;
+
+    border-radius: 20px;
+}
+
+#interaction-panel::-webkit-scrollbar-thumb:hover {
+    background: #aa9076;
+}
+
+
+/* =========================================================
+   PANEL CLOSE
+========================================================= */
+
+#close-panel {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ecdfd0;
+
+    color: #5b493b;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease,
+        color 0.15s ease;
+}
+
+#close-panel:hover {
+    background: #dbc6af;
+
+    color: #332820;
+
+    transform: rotate(5deg) scale(1.05);
+}
+
+#close-panel:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================================
+   PANEL TITLE
+========================================================= */
+
+#panel-title {
+    margin: 0;
+
+    padding-right: 35px;
+
+    color: #40342c;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+#panel-title::after {
+    content: "";
+
+    display: block;
+
+    width: 38px;
+    height: 3px;
+
+    margin-top: 9px;
+
+    background: #ad7653;
+
+    border-radius: 50px;
+}
+
+
+/* =========================================================
+   PANEL CONTENT
+========================================================= */
+
+#panel-content {
+    margin-top: 20px;
+
+    line-height: 1.6;
+}
+
+#panel-content p {
+    color: #75675b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   OBJECT PAGE
+========================================================= */
+
+.object-page {
+    width: 100%;
+
+    text-align: center;
+}
+
+.object-page h3 {
+    margin: 8px 0 5px;
+
+    color: #49392f;
+
+    font-size: 20px;
+}
+
+.object-page p {
+    margin-bottom: 15px;
+
+    color: #76685c;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   OBJECT ICON
+========================================================= */
+
+.object-icon {
+    width: 74px;
+    height: 74px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4e4d1,
+            #ead4bc
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        0 8px 20px rgba(73, 52, 38, 0.08);
+
+    font-size: 38px;
+}
+
+
+/* =========================================================
+   ACTION GROUP
+========================================================= */
+
+.action-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 16px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+#interaction-panel button:not(#close-panel) {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 11px 16px;
+
+    border-radius: 13px;
+
+    background: #91694e;
+
+    color: #fffaf4;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px rgba(91, 63, 44, 0.12);
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#interaction-panel button:not(#close-panel):hover {
+    background: #7c573f;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(91, 63, 44, 0.16);
+}
+
+#interaction-panel button:not(#close-panel):active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 3px 7px rgba(91, 63, 44, 0.12);
+}
+
+
+/* =========================================================
+   CHOICE GRID
+========================================================= */
+
+.choice-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-top: 16px;
+}
+
+.choice-grid button:not(#close-panel) {
+    min-height: 82px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    background: #eadccd;
+
+    color: #564438;
+
+    box-shadow: none;
+}
+
+.choice-grid button:not(#close-panel):hover {
+    background: #dfcbb6;
+}
+
+.choice-grid button span {
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   RESULT MESSAGE
+========================================================= */
+
+.result-message {
+    text-align: center;
+
+    padding: 12px 0;
+}
+
+.result-message h3 {
+    margin: 8px 0;
+
+    font-size: 20px;
+}
+
+.result-message p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   RESULT ICON
+========================================================= */
+
+.result-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #efe1d1;
+
+    font-size: 42px;
+
+    box-shadow:
+        0 8px 22px rgba(72, 51, 38, 0.08);
+}
+
+
+/* =========================================================
+   INVENTORY
+========================================================= */
+
+.inventory {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.inventory div {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    background: #eee2d3;
+
+    border:
+        1px solid rgba(96, 70, 49, 0.08);
+
+    border-radius: 11px;
+
+    color: #625246;
+
+    font-size: 13px;
+
+    text-align: left;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.inventory div:hover {
+    background: #e5d4c0;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   FAKE TERMINAL
+========================================================= */
+
+.fake-terminal {
+    width: 100%;
+
+    margin: 15px 0;
+
+    padding: 15px 16px;
+
+    background: #23272c;
+
+    border-radius: 14px;
+
+    color: #8bd0a4;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 8px 18px rgba(40, 30, 25, 0.12);
+}
+
+.fake-terminal div::before {
+    content: "";
+
+    opacity: 0.3;
+}
+
+
+/* =========================================================
+   WEATHER CARD
+========================================================= */
+
+.weather-card {
+    margin: 16px 0;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e7edf0,
+            #d9e5e9
+        );
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(85, 100, 105, 0.1);
+
+    color: #56656a;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.weather-icon {
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MINI GAME
+========================================================= */
+
+.mini-game {
+    width: 100%;
+}
+
+.mini-game h3 {
+    margin-bottom: 6px;
+
+    font-size: 19px;
+}
+
+.mini-game p {
+    margin-bottom: 13px;
+}
+
+
+/* =========================================================
+   CLEANING
+========================================================= */
+
+.cleaning-progress {
+    margin: 14px 0;
+
+    padding: 10px 12px;
+
+    background: #eee0ce;
+
+    border-radius: 10px;
+
+    color: #765f4b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.mess-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.mess-item {
+    background: #f0e4d5 !important;
+
+    color: #57483c !important;
+
+    box-shadow: none !important;
+
+    text-align: left;
+}
+
+.mess-item:hover {
+    background: #e6d5bf !important;
+}
+
+
+/* =========================================================
+   PACKING
+========================================================= */
+
+.suitcase-box {
+    min-height: 145px;
+
+    margin: 15px 0;
+
+    padding: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eee0d0,
+            #e4d0ba
+        );
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(102, 75, 52, 0.08);
+}
+
+.suitcase-icon {
+    font-size: 48px;
+}
+
+.packed-items {
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 6px;
+}
+
+.packed-item {
+    padding: 6px 9px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    border-radius: 8px;
+
+    color: #665447;
+
+    font-size: 11px;
+}
+
+.packing-items {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+.packing-item {
+    background: #eee1d2 !important;
+
+    color: #58483b !important;
+
+    box-shadow: none !important;
+
+    font-size: 13px !important;
+}
+
+.packing-item:hover {
+    background: #dfccb6 !important;
+}
+
+
+/* =========================================================
+   PHONE UI
+========================================================= */
+
+.phone-ui {
+    width: 100%;
+}
+
+.phone-status {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 7px 12px;
+
+    background: #20262c;
+
+    color: #edf4f5;
+
+    border-radius: 12px 12px 0 0;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.phone-screen {
+    min-height: 260px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e8f0f1,
+            #dce6e5
+        );
+
+    border-radius: 0 0 18px 18px;
+}
+
+.phone-screen h3 {
+    margin-bottom: 18px;
+
+    text-align: center;
+
+    color: #39484a;
+}
+
+.phone-apps {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.phone-apps button {
+    min-height: 78px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    background: rgba(255, 255, 255, 0.72) !important;
+
+    color: #485456 !important;
+
+    box-shadow:
+        0 4px 10px rgba(55, 65, 66, 0.08) !important;
+}
+
+.phone-apps button:hover {
+    background: white !important;
+
+    transform: translateY(-3px);
+}
+
+.phone-apps button span {
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PHONE PAGE
+========================================================= */
+
+.phone-page {
+    text-align: left;
+}
+
+.phone-page > button:first-child {
+    width: auto !important;
+
+    min-height: auto !important;
+
+    margin-bottom: 14px;
+
+    padding: 7px 11px !important;
+
+    background: #e7daca !important;
+
+    color: #604d3d !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+    margin-bottom: 10px;
+
+    padding: 12px;
+
+    border-radius: 13px;
+
+    background: #eee3d7;
+
+    border:
+        1px solid rgba(88, 65, 48, 0.07);
+}
+
+.message strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #554234;
+
+    font-size: 13px;
+}
+
+.message p {
+    margin: 0;
+
+    font-size: 12px;
+}
+
+.message small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #998777;
+
+    font-size: 10px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+#phone-note {
+    width: 100%;
+
+    min-height: 120px;
+
+    margin: 12px 0;
+
+    padding: 13px;
+
+    resize: vertical;
+
+    border:
+        1px solid rgba(94, 72, 55, 0.14);
+
+    border-radius: 12px;
+
+    background: #fffaf4;
+
+    color: #46382f;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    outline: none;
+
+    transition:
+        border 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#phone-note:focus {
+    border-color: #b28b6d;
+
+    box-shadow:
+        0 0 0 3px rgba(178, 139, 109, 0.12);
+}
+
+#phone-note::placeholder {
+    color: #a99888;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calendar {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+    margin: 14px 0;
+}
+
+.calendar div {
+    padding: 10px;
+
+    background: #eee1d2;
+
+    border-radius: 9px;
+
+    color: #685749;
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-player {
+    padding: 18px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e7ddd2,
+            #d8c9ba
+        );
+
+    border-radius: 18px;
+}
+
+.album {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: #604b3d;
+
+    color: white;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 10px 20px rgba(74, 54, 42, 0.15);
+}
+
+
+/* =========================================================
+   TOOLTIP
+========================================================= */
+
+#tooltip {
+    position: fixed;
+
+    padding: 7px 10px;
+
+    background: rgba(53, 43, 35, 0.94);
+
+    color: #fffaf3;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform:
+        translateY(4px);
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+
+    z-index: 200;
+}
+
+#tooltip.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   SCREEN FADE
+========================================================= */
+
+.screen-fade {
+    position: fixed;
+
+    inset: 0;
+
+    background: #f4ebdd;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    z-index: 500;
+
+    transition:
+        opacity 0.4s ease;
+}
+
+.screen-fade.active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes panelAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            translateX(20px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(-50%)
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hud {
+        padding: 0 24px;
+    }
+
+    .logo {
+        font-size: 25px;
+        letter-spacing: 7px;
+    }
+
+    .clock #time {
+        font-size: 20px;
+    }
+
+    #room {
+        width: 1000px;
+        max-width: none;
+    }
+
+    #interaction-panel {
+        right: 18px;
+
+        width: 330px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    #game {
+        min-height: 500px;
+    }
+
+    .hud {
+        height: 65px;
+
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 22px;
+
+        letter-spacing: 6px;
+    }
+
+    .logo::after {
+        bottom: -6px;
+
+        width: 25px;
+    }
+
+    .clock #time {
+        font-size: 17px;
+    }
+
+    .clock #day {
+        font-size: 11px;
+    }
+
+    #room-container {
+        padding-top: 40px;
+    }
+
+    #room {
+        width: 900px;
+
+        max-width: none;
+    }
+
+    #interaction-panel {
+        top: auto;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+
+        width: auto;
+
+        max-width: none;
+        max-height: 70vh;
+
+        padding: 22px;
+
+        border-radius: 20px;
+
+        transform: none;
+
+        animation:
+            mobilePanelAppear 0.22s ease;
+    }
+
+    .choice-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .packing-items {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @keyframes mobilePanelAppear {
+
+        from {
+            opacity: 0;
+
+            transform:
+                translateY(20px)
+                scale(0.98);
+        }
+
+        to {
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .hud {
+        padding: 0 14px;
+    }
+
+    .logo {
+        font-size: 19px;
+
+        letter-spacing: 5px;
+    }
+
+    .clock #time {
+        font-size: 15px;
+    }
+
+    .clock #day {
+        font-size: 10px;
+    }
+
+    #interaction-panel {
+        padding: 19px;
+    }
+
+    #panel-title {
+        font-size: 21px;
+    }
+
+    .object-icon {
+        width: 65px;
+        height: 65px;
+
+        font-size: 32px;
+    }
+
+    .phone-apps {
+        gap: 8px;
+    }
+
+    .phone-apps button {
+        min-height: 70px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}

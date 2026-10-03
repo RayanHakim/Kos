@@ -1,0 +1,622 @@
+/* =========================================
+   ROOM CONTAINER
+========================================= */
+
+#room-container {
+    width: 100%;
+    height: calc(100vh - 80px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    position: relative;
+}
+
+#room {
+    width: min(1180px, 96vw);
+    height: auto;
+
+    overflow: visible;
+}
+
+
+/* =========================================
+   BASE
+========================================= */
+
+.room-part {
+    pointer-events: none;
+}
+
+
+/* =========================================
+   WALLS
+========================================= */
+
+.wall {
+    stroke: #55483d;
+    stroke-width: 4;
+}
+
+.wall-left {
+    fill: #f7efe3;
+}
+
+.wall-right {
+    fill: #e6d8c6;
+}
+
+.wall-edge {
+    stroke: #55483d;
+    stroke-width: 5;
+}
+
+.baseboard {
+    stroke: #c3ac91;
+    stroke-width: 10;
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   FLOOR
+========================================= */
+
+.floor {
+    fill: #d5b995;
+    stroke: #55483d;
+    stroke-width: 4;
+}
+
+.floor-lines line {
+    stroke: #b69774;
+    stroke-width: 2;
+    opacity: 0.55;
+}
+
+
+/* =========================================
+   OBJECT GENERAL
+========================================= */
+
+.object {
+    stroke: #4b4038;
+    stroke-width: 4;
+
+    transform-box: fill-box;
+    transform-origin: center;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.interactive {
+    cursor: pointer;
+}
+
+.interactive:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.08);
+}
+
+
+/* =========================================
+   SHADOW
+========================================= */
+
+.object-shadow,
+.table-shadow {
+    fill: #705f4f;
+    opacity: 0.18;
+    stroke: none;
+}
+
+
+/* =========================================
+   WINDOW
+========================================= */
+
+.window-frame {
+    fill: #5a4537;
+    stroke: #44362d;
+    stroke-width: 4;
+}
+
+.window-glass {
+    fill: url(#windowSky);
+    stroke: #3e342d;
+    stroke-width: 3;
+}
+
+.window-detail {
+    stroke: #5a5148;
+    stroke-width: 6;
+}
+
+.clouds ellipse {
+    fill: rgba(255, 255, 255, 0.8);
+    stroke: none;
+}
+
+.curtain {
+    fill: #c9a47e;
+    stroke: #6f5845;
+    stroke-width: 3;
+}
+
+.curtain-tie {
+    stroke: #8b684d;
+    stroke-width: 5;
+}
+
+
+/* =========================================
+   POSTER
+========================================= */
+
+.poster-shadow {
+    fill: #7d654f;
+    opacity: 0.16;
+    stroke: none;
+}
+
+.poster-frame {
+    fill: #6c4c37;
+    stroke: #49382d;
+    stroke-width: 3;
+}
+
+.poster-paper {
+    fill: #fff8eb;
+    stroke: none;
+}
+
+.poster-title {
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    fill: #4b4038;
+}
+
+.poster-subtitle {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    fill: #8a7765;
+}
+
+.poster-sun {
+    fill: #e6a84e;
+    stroke: none;
+}
+
+
+/* =========================================
+   WARDROBE
+========================================= */
+
+.wardrobe {
+    fill: #7b4d32;
+    stroke: #4a3327;
+}
+
+.wardrobe-side {
+    fill: #603b29;
+    stroke: #4a3327;
+}
+
+.wardrobe-door {
+    fill: #93603f;
+    stroke: #4b3529;
+    stroke-width: 3;
+}
+
+.wardrobe-top {
+    fill: #a8734c;
+    stroke: #4b3529;
+}
+
+.wardrobe-handle {
+    fill: #d4a65d;
+    stroke: #533f30;
+    stroke-width: 3;
+}
+
+
+/* =========================================
+   SHELF
+========================================= */
+
+.shelf {
+    fill: #775039;
+    stroke: #4d3629;
+    stroke-width: 4;
+}
+
+.shelf-line {
+    stroke: #4c372b;
+    stroke-width: 5;
+}
+
+.book {
+    stroke: #47362c;
+    stroke-width: 2;
+}
+
+.book-red {
+    fill: #c65e57;
+}
+
+.book-blue {
+    fill: #6085a8;
+}
+
+.book-green {
+    fill: #75906b;
+}
+
+
+/* =========================================
+   BED
+========================================= */
+
+.headboard {
+    fill: #76513a;
+    stroke: #4b362b;
+    stroke-width: 4;
+}
+
+.bed-base {
+    fill: url(#mattress);
+    stroke: #5b4d43;
+    stroke-width: 4;
+}
+
+.bed-side {
+    fill: #c9a88b;
+    stroke: #5b4d43;
+}
+
+.blanket {
+    fill: #7595ae;
+    stroke: #52687a;
+    stroke-width: 3;
+}
+
+.blanket-stripe {
+    fill: #dbe7ee;
+    opacity: 0.75;
+    stroke: none;
+}
+
+.pillow {
+    fill: #fffaf2;
+    stroke: #bcb0a2;
+    stroke-width: 3;
+}
+
+.pillow-small {
+    fill: #ded6cb;
+}
+
+.bed-leg {
+    fill: #60402f;
+    stroke: #473126;
+    stroke-width: 3;
+}
+
+
+/* =========================================
+   RUG
+========================================= */
+
+.rug-base {
+    fill: url(#carpet);
+    stroke: #714c42;
+    stroke-width: 4;
+}
+
+.rug-inner {
+    fill: #e2a58c;
+    stroke: #a96d5b;
+    stroke-width: 3;
+}
+
+.rug-pattern {
+    stroke: #f0c4a9;
+    stroke-width: 4;
+}
+
+
+/* =========================================
+   BEDSIDE TABLE
+========================================= */
+
+.bedside-top {
+    fill: #a66e47;
+    stroke: #4e382c;
+}
+
+.bedside-front {
+    fill: #875535;
+    stroke: #4e382c;
+}
+
+.bedside-side {
+    fill: #6f432d;
+    stroke: #4e382c;
+}
+
+.drawer {
+    fill: #9a6540;
+    stroke: #50372a;
+    stroke-width: 2;
+}
+
+
+/* =========================================
+   LAMP
+========================================= */
+
+.lamp-shade {
+    fill: #dfaa53;
+    stroke: #63482d;
+}
+
+.lamp-pole {
+    stroke: #58463a;
+    stroke-width: 5;
+}
+
+.lamp-light {
+    fill: #ffe39a;
+    stroke: #876a3c;
+    stroke-width: 2;
+}
+
+
+/* =========================================
+   DESK
+========================================= */
+
+.desk-top {
+    fill: url(#wood);
+    stroke: #4d3426;
+}
+
+.desk-front {
+    fill: #875333;
+    stroke: #4d3426;
+}
+
+.desk-side {
+    fill: #70432c;
+    stroke: #4d3426;
+}
+
+.desk-drawer {
+    fill: #9f6541;
+    stroke: #563b2d;
+    stroke-width: 2;
+}
+
+.desk-leg {
+    fill: #5f3c29;
+    stroke: #473126;
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+.laptop-screen {
+    fill: #2f3947;
+    stroke: #27303b;
+    stroke-width: 4;
+}
+
+.laptop-display {
+    fill: #1e2c3b;
+    stroke: #6e8295;
+    stroke-width: 2;
+}
+
+.laptop-keyboard {
+    fill: #7a8087;
+    stroke: #3f454a;
+    stroke-width: 3;
+}
+
+.trackpad {
+    fill: #aeb6bc;
+    stroke: none;
+}
+
+.code-line {
+    stroke: #7bc7a4;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+
+/* =========================================
+   CHAIR
+========================================= */
+
+.chair-back {
+    fill: #c96e61;
+    stroke: #703f39;
+}
+
+.chair-seat {
+    fill: #df8272;
+    stroke: #703f39;
+}
+
+.chair-leg {
+    stroke: #594236;
+    stroke-width: 6;
+}
+
+
+/* =========================================
+   PLANT
+========================================= */
+
+.plant-pot {
+    fill: #c66c4f;
+    stroke: #703b2d;
+}
+
+.plant-stem {
+    stroke: #466d4d;
+    stroke-width: 5;
+    fill: none;
+}
+
+.leaf {
+    fill: url(#plantLeaf);
+    stroke: #3c6045;
+    stroke-width: 2;
+}
+
+
+/* =========================================
+   SUITCASE
+========================================= */
+
+.suitcase {
+    fill: #b87348;
+    stroke: #53392b;
+}
+
+.suitcase-handle {
+    fill: none;
+    stroke: #51372b;
+    stroke-width: 7;
+}
+
+.suitcase-line {
+    stroke: #7f4c32;
+    stroke-width: 3;
+}
+
+.suitcase-wheel {
+    fill: #49382e;
+    stroke: none;
+}
+
+
+/* =========================================
+   BACKPACK
+========================================= */
+
+.backpack {
+    fill: #596f80;
+    stroke: #374a58;
+}
+
+.backpack-pocket {
+    fill: #708a9c;
+    stroke: #3b4f5d;
+    stroke-width: 3;
+}
+
+.backpack-handle {
+    fill: none;
+    stroke: #394a57;
+    stroke-width: 6;
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+.phone {
+    fill: #20262d;
+    stroke: #11161a;
+}
+
+.phone-camera {
+    fill: #6b8295;
+    stroke: none;
+}
+
+
+/* =========================================
+   CUP
+========================================= */
+
+.cup-body {
+    fill: #f1e1c8;
+    stroke: #6e5642;
+}
+
+.coffee {
+    fill: #543a2b;
+    stroke: #453126;
+}
+
+.cup-handle {
+    fill: none;
+    stroke: #70553f;
+    stroke-width: 3;
+}
+
+
+/* =========================================
+   SHOES
+========================================= */
+
+.shoe {
+    stroke: #483930;
+    stroke-width: 3;
+}
+
+.shoe-one {
+    fill: #748a99;
+}
+
+.shoe-two {
+    fill: #ba6659;
+}
+
+
+/* =========================================
+   TRASH BIN
+========================================= */
+
+.trash-bin {
+    fill: #69777c;
+    stroke: #414a4e;
+}
+
+.trash-lid {
+    fill: #7f8d91;
+    stroke: #414a4e;
+}
+
+.trash-detail {
+    stroke: #485256;
+    stroke-width: 3;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    #room {
+        width: 1150px;
+        max-width: none;
+        transform: scale(0.75);
+    }
+
+}

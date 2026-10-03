@@ -1,0 +1,1657 @@
+/* =========================================================
+   KOS
+   UI STYLE
+========================================================= */
+
+
+/* =========================================================
+   HUD
+========================================================= */
+
+.hud {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    position: relative;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    position: relative;
+
+    color: #3b3028;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    line-height: 1;
+
+    pointer-events: auto;
+}
+
+.logo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 1px;
+    bottom: -8px;
+
+    width: 28px;
+    height: 3px;
+
+    border-radius: 50px;
+
+    background: #a97852;
+}
+
+
+/* =========================================================
+   CLOCK
+========================================================= */
+
+.clock {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+
+    color: #3b3028;
+
+    font-size: 14px;
+
+    line-height: 1.2;
+
+    pointer-events: auto;
+}
+
+#time {
+    color: #342a24;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+}
+
+#day {
+    color: #806e60;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   INTERACTION PANEL
+========================================================= */
+
+#interaction-panel {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(440px, 92vw);
+
+    max-height: 82vh;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 251, 245, 0.98),
+            rgba(247, 235, 219, 0.98)
+        );
+
+    color: #3b3028;
+
+    border:
+        1px solid rgba(79, 61, 46, 0.15);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 30px 80px rgba(59, 48, 40, 0.20),
+        0 8px 25px rgba(59, 48, 40, 0.10);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    z-index: 100;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    animation:
+        panel-open 0.22s ease;
+}
+
+
+/* =========================================================
+   PANEL SCROLLBAR
+========================================================= */
+
+#interaction-panel::-webkit-scrollbar {
+    width: 7px;
+}
+
+#interaction-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#interaction-panel::-webkit-scrollbar-thumb {
+    background: #c6ad94;
+
+    border-radius: 20px;
+}
+
+#interaction-panel::-webkit-scrollbar-thumb:hover {
+    background: #a98b70;
+}
+
+
+/* =========================================================
+   PANEL CLOSE
+========================================================= */
+
+#close-panel {
+    position: absolute;
+
+    top: 12px;
+    right: 14px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #eadccc;
+
+    color: #5a4738;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+#close-panel:hover {
+    background: #dcc7b0;
+
+    color: #382b23;
+
+    transform:
+        rotate(8deg)
+        scale(1.08);
+}
+
+#close-panel:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================================
+   PANEL TITLE
+========================================================= */
+
+#panel-title {
+    margin: 0;
+
+    padding-right: 35px;
+
+    color: #3e322a;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+#panel-title::after {
+    content: "";
+
+    display: block;
+
+    width: 38px;
+    height: 3px;
+
+    margin-top: 9px;
+
+    border-radius: 30px;
+
+    background: #a97651;
+}
+
+
+/* =========================================================
+   PANEL CONTENT
+========================================================= */
+
+#panel-content {
+    margin-top: 20px;
+
+    color: #655548;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+#panel-content h3 {
+    color: #493930;
+}
+
+#panel-content h4 {
+    margin-top: 17px;
+    margin-bottom: 8px;
+
+    color: #5b4738;
+
+    font-size: 14px;
+}
+
+#panel-content p {
+    color: #78695c;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   OBJECT PAGE
+========================================================= */
+
+.object-page {
+    width: 100%;
+
+    text-align: center;
+}
+
+.object-page h3 {
+    margin: 8px 0 5px;
+
+    color: #493930;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+.object-page p {
+    margin-bottom: 15px;
+
+    color: #796a5d;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   OBJECT ICON
+========================================================= */
+
+.object-icon {
+    width: 76px;
+    height: 76px;
+
+    margin:
+        0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f1dfcc,
+            #e5cdb4
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 10px 24px rgba(72, 50, 36, 0.08);
+
+    font-size: 39px;
+
+    animation:
+        icon-pop 0.25s ease;
+}
+
+
+/* =========================================================
+   ACTION GROUP
+========================================================= */
+
+.action-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 17px;
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+========================================================= */
+
+#interaction-panel button {
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease;
+}
+
+#interaction-panel button:not(#close-panel) {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 11px 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #91694e;
+
+    color: #fffaf4;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 12px rgba(86, 59, 40, 0.12);
+}
+
+#interaction-panel button:not(#close-panel):hover {
+    background: #7d5941;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(86, 59, 40, 0.16);
+}
+
+#interaction-panel button:not(#close-panel):active {
+    transform:
+        translateY(0)
+        scale(0.985);
+
+    box-shadow:
+        0 3px 8px rgba(86, 59, 40, 0.10);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.button-secondary {
+    background: #e9dccd !important;
+
+    color: #5a4637 !important;
+
+    box-shadow: none !important;
+}
+
+.button-secondary:hover {
+    background: #ddccb9 !important;
+}
+
+
+/* =========================================================
+   CHOICE GRID
+========================================================= */
+
+.choice-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-top: 16px;
+}
+
+.choice-grid button {
+    min-height: 82px !important;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    background: #eadccd !important;
+
+    color: #58463a !important;
+
+    box-shadow: none !important;
+
+    font-size: 25px !important;
+}
+
+.choice-grid button:hover {
+    background: #dfcbb7 !important;
+
+    transform:
+        translateY(-3px) !important;
+}
+
+.choice-grid button span {
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   RESULT MESSAGE
+========================================================= */
+
+.result-message {
+    padding: 8px 0 2px;
+
+    text-align: center;
+}
+
+.result-message h3 {
+    margin: 8px 0;
+
+    color: #493930;
+
+    font-size: 20px;
+}
+
+.result-message p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   RESULT ICON
+========================================================= */
+
+.result-icon {
+    width: 82px;
+    height: 82px;
+
+    margin:
+        0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #efe0cf,
+            #e6d0b9
+        );
+
+    font-size: 41px;
+
+    box-shadow:
+        0 10px 25px rgba(72, 50, 36, 0.08);
+
+    animation:
+        icon-pop 0.25s ease;
+}
+
+
+/* =========================================================
+   MINI GAME
+========================================================= */
+
+.mini-game {
+    width: 100%;
+}
+
+.mini-game h3 {
+    margin-bottom: 6px;
+
+    font-size: 19px;
+}
+
+.mini-game p {
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   CLEANING
+========================================================= */
+
+.cleaning-game {
+    text-align: center;
+}
+
+.cleaning-progress {
+    width: 100%;
+
+    margin:
+        15px 0;
+
+    padding: 11px 13px;
+
+    border-radius: 11px;
+
+    background: #ecdfce;
+
+    color: #725b47;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.mess-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.mess-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 7px;
+
+    background: #f0e3d4 !important;
+
+    color: #5e4b3c !important;
+
+    text-align: left;
+
+    box-shadow: none !important;
+}
+
+.mess-item:hover {
+    background: #e4d2bc !important;
+
+    transform:
+        translateX(3px) !important;
+}
+
+
+/* =========================================================
+   CLEANING SUCCESS
+========================================================= */
+
+.success {
+    text-align: center;
+
+    padding: 8px 0;
+}
+
+.success h3 {
+    color: #5d765e;
+}
+
+
+/* =========================================================
+   PACKING
+========================================================= */
+
+.packing-game {
+    text-align: center;
+}
+
+.suitcase-box {
+    min-height: 155px;
+
+    margin: 16px 0;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eee0d0,
+            #e2ccb3
+        );
+
+    border:
+        1px solid rgba(97, 71, 49, 0.08);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.suitcase-icon {
+    font-size: 48px;
+
+    line-height: 1;
+}
+
+.packed-items {
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+}
+
+.packed-item {
+    padding: 6px 9px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.58);
+
+    color: #675447;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.packing-items {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+.packing-item {
+    min-height: 62px !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    background: #eee0cf !important;
+
+    color: #5c4b3d !important;
+
+    box-shadow: none !important;
+
+    font-size: 13px !important;
+}
+
+.packing-item:hover {
+    background: #dfceb9 !important;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.phone-ui {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 10px 25px rgba(57, 53, 47, 0.10);
+}
+
+.phone-status {
+    min-height: 31px;
+
+    padding: 7px 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #272d32;
+
+    color: #edf4f2;
+
+    border-radius:
+        17px 17px 0 0;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.phone-screen {
+    min-height: 280px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e8f0ef,
+            #dae5e3
+        );
+
+    border-radius:
+        0 0 17px 17px;
+}
+
+.phone-screen h3 {
+    margin:
+        0 0 18px;
+
+    color: #39494a;
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+.phone-apps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.phone-apps button {
+    min-height: 82px !important;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    background:
+        rgba(255, 255, 255, 0.73) !important;
+
+    color: #4a595a !important;
+
+    box-shadow:
+        0 4px 12px rgba(58, 67, 67, 0.08) !important;
+
+    font-size: 24px !important;
+}
+
+.phone-apps button:hover {
+    background:
+        rgba(255, 255, 255, 0.95) !important;
+
+    transform:
+        translateY(-3px) !important;
+}
+
+.phone-apps button span {
+    color: #596667;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PHONE PAGE
+========================================================= */
+
+.phone-page {
+    width: 100%;
+
+    text-align: left;
+}
+
+.phone-page > button:first-child {
+    width: auto !important;
+
+    min-height: auto !important;
+
+    margin:
+        0 0 14px;
+
+    padding:
+        7px 11px !important;
+
+    background: #e7dbcd !important;
+
+    color: #624e3f !important;
+
+    box-shadow: none !important;
+}
+
+.phone-page > button:first-child:hover {
+    background: #dccbb8 !important;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+    margin-bottom: 9px;
+
+    padding: 12px;
+
+    border:
+        1px solid rgba(90, 67, 50, 0.07);
+
+    border-radius: 13px;
+
+    background: #eee3d8;
+
+    box-shadow:
+        0 3px 8px rgba(78, 59, 45, 0.04);
+}
+
+.message strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #554235;
+
+    font-size: 13px;
+}
+
+.message p {
+    margin: 0;
+
+    color: #75655a !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.5;
+}
+
+.message small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #a08e7d;
+
+    font-size: 10px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+#phone-note {
+    width: 100%;
+
+    min-height: 125px;
+
+    margin:
+        10px 0 11px;
+
+    padding: 13px;
+
+    resize: vertical;
+
+    background: #fffaf4;
+
+    color: #4c3d33;
+
+    border:
+        1px solid rgba(91, 68, 50, 0.14);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    transition:
+        border 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#phone-note:focus {
+    border-color: #b58e70;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(181, 142, 112, 0.12);
+}
+
+#phone-note::placeholder {
+    color: #a69687;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calendar {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 7px;
+
+    margin:
+        14px 0;
+}
+
+.calendar div {
+    padding: 10px;
+
+    border-radius: 9px;
+
+    background: #eee2d3;
+
+    color: #6a594b;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+}
+
+.calendar div:hover {
+    background: #e4d2bd;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-player {
+    padding: 19px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e9ded2,
+            #d9cabb
+        );
+
+    text-align: center;
+}
+
+.album {
+    width: 84px;
+    height: 84px;
+
+    margin:
+        0 auto 13px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #695345,
+            #47382f
+        );
+
+    color: white;
+
+    font-size: 39px;
+
+    box-shadow:
+        0 12px 24px rgba(68, 49, 38, 0.16);
+}
+
+.music-player h4 {
+    margin-bottom: 3px;
+
+    color: #4b3a30;
+
+    font-size: 16px;
+}
+
+.music-player p {
+    margin-bottom: 10px;
+
+    font-size: 12px !important;
+}
+
+
+/* =========================================================
+   INVENTORY
+========================================================= */
+
+.inventory {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 14px;
+}
+
+.inventory div {
+    padding: 11px 13px;
+
+    border:
+        1px solid rgba(89, 66, 48, 0.07);
+
+    border-radius: 11px;
+
+    background: #eee2d4;
+
+    color: #665448;
+
+    font-size: 12px;
+
+    text-align: left;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+}
+
+.inventory div:hover {
+    background: #e4d2bd;
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.fake-terminal {
+    width: 100%;
+
+    margin:
+        15px 0;
+
+    padding:
+        14px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #272c31,
+            #1e2226
+        );
+
+    color: #8bd1a5;
+
+    border-radius: 13px;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.04),
+        0 9px 20px
+        rgba(40, 30, 25, 0.13);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    text-align: left;
+
+    line-height: 1.8;
+}
+
+.fake-terminal div:first-child {
+    color: #d9e2dc;
+}
+
+
+/* =========================================================
+   WEATHER
+========================================================= */
+
+.weather-card {
+    margin:
+        15px 0;
+
+    padding:
+        20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e5eef0,
+            #d6e3e6
+        );
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(73, 91, 96, 0.08);
+
+    color: #566467;
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.65);
+}
+
+.weather-icon {
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SIMPLE MESSAGE
+========================================================= */
+
+.mini-message {
+    padding: 16px;
+
+    border-radius: 14px;
+
+    background: #eee2d4;
+
+    text-align: center;
+}
+
+.mini-message p {
+    margin: 0;
+
+    color: #665548 !important;
+}
+
+
+/* =========================================================
+   TOOLTIP
+========================================================= */
+
+#tooltip {
+    position: fixed;
+
+    padding:
+        7px 11px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(51, 42, 35, 0.94);
+
+    color: #fffaf4;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform:
+        translateY(4px);
+
+    z-index: 250;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+}
+
+#tooltip.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   PANEL BACKDROP
+========================================================= */
+
+#interaction-panel::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a97651,
+            #d2a982,
+            #a97651
+        );
+
+    border-radius:
+        24px 24px 0 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.ui-loading {
+    min-height: 100px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    color: #796758;
+
+    font-size: 13px;
+}
+
+.ui-loading::before {
+    content: "";
+
+    width: 25px;
+    height: 25px;
+
+    border:
+        3px solid #dbc9b6;
+
+    border-top-color: #8f6950;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes panel-open {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -48%)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+@keyframes icon-pop {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes spin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hud {
+        padding:
+            0 22px;
+    }
+
+    .logo {
+        font-size: 23px;
+
+        letter-spacing: 6px;
+    }
+
+    #interaction-panel {
+        width:
+            min(400px, 88vw);
+
+        padding: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hud {
+        height: 64px;
+
+        padding:
+            0 16px;
+    }
+
+    .logo {
+        font-size: 20px;
+
+        letter-spacing: 5px;
+    }
+
+    #time {
+        font-size: 17px;
+    }
+
+    #day {
+        font-size: 10px;
+    }
+
+
+    #interaction-panel {
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: 10px;
+
+        width: auto;
+
+        max-width: none;
+
+        max-height: 72vh;
+
+        padding: 21px;
+
+        transform: none;
+
+        border-radius: 21px;
+
+        animation:
+            mobile-panel-open 0.22s ease;
+    }
+
+
+    #close-panel {
+        top: 10px;
+        right: 11px;
+
+        width: 32px;
+        height: 32px;
+    }
+
+
+    #panel-title {
+        font-size: 21px;
+    }
+
+
+    .object-icon {
+        width: 65px;
+        height: 65px;
+
+        font-size: 32px;
+    }
+
+
+    .choice-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .packing-items {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .phone-screen {
+        min-height: 240px;
+
+        padding: 16px;
+    }
+
+
+    .phone-apps {
+        gap: 8px;
+    }
+
+
+    .phone-apps button {
+        min-height: 70px !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .hud {
+        padding:
+            0 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+
+        letter-spacing: 4px;
+    }
+
+    #time {
+        font-size: 15px;
+    }
+
+    #day {
+        font-size: 9px;
+    }
+
+
+    #interaction-panel {
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+
+        padding: 18px;
+
+        border-radius: 18px;
+    }
+
+
+    .choice-grid {
+        gap: 7px;
+    }
+
+
+    .packing-items {
+        gap: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #interaction-panel,
+    .object-icon,
+    .ui-loading::before {
+        animation: none !important;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   HIDDEN STATE
+========================================================= */
+
+.hidden {
+    display: none !important;
+}
